@@ -27,7 +27,6 @@
         };
         
         ctrl.removeItem = function(idx) {
-            console.log('removeItem: ' + idx);
             ctrl.found.splice(idx, 1);
         };
         
