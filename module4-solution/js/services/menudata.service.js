@@ -14,17 +14,21 @@
         var service = this;
         
         service.getAllCategories = function() {
+            // add some timeout for the loader to show
+            // not really needed for the code to work
             return $timeout(function() {
                 return $http.get(DataConfig.categoriesUrl);
-            }, 500);
+            }, 800);
         };
         
         service.getItemForCategory = function(categoryShortName) {
+            // add some timeout for the loader to show
+            // not really needed for the code to work
             return $timeout(function() {
                 return $http.get(DataConfig.categoryUrl, {
                     params : {category : categoryShortName}
                 });
-            }, 500);
+            }, 800);
         };
     }
 
