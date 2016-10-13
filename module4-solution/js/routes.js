@@ -1,4 +1,7 @@
 (function() {
+    
+    'use strict';
+    
     angular.module('MenuApp')
         .config(RouteConfig);
     
@@ -10,12 +13,30 @@
         $stateProvider
             .state('home', {
                 url : '/home',
-                templateUrl : 'partials/home.html'
+                templateUrl : 'templates/home.template.html'
             })
             .state('categories', {
-                url : 'categories',
-                template : 'parials/categories.html'
+                url : '/categories',
+                templateUrl : 'templates/categories.template.html',
+                resolve : {
+                    categories : ['MenuDataService', function(MenuDataService) {
+                        return MenuDataService.getAllCategories();
+                    }]
+                },
+                controller : 'CategoriesController',
+                controllerAs : 'catCtrl'
+            })
+            .state('items', {
+                url : '/items/{shortName}',
+                templateUrl : 'templates/items.template.html',
+                resolve : {
+                    items : ['MenuDataService', '$stateParams', function(MenuDataService, $stateParams) {
+                        return MenuDataService.getItemForCategory($stateParams.shortName);
+                    }]
+                },
+                controller : 'ItemsController',
+                controllerAs : 'itemsCtrl'
             });
-        
+
     }
 })();
