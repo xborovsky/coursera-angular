@@ -1,0 +1,38 @@
+<div class="container">
+    <h2 class="text-center">My info</h2>
+    
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <span ng-if="!myInfoCtrl.userData">Not signed up yet. <a href="#" ui-sref="public.signup">Sign up now!</a></span>
+        </div>
+        
+        <div class="col-xs-12 col-md-6 col-md-push-3">
+    
+            <table ng-if="myInfoCtrl.userData" class="table text-center">
+                <tbody>
+                    <tr>
+                        <th>First name</th>
+                        <td>{{myInfoCtrl.userData.firstName}}</td>
+                    </tr>
+                    <tr>
+                        <th>Last name</th>
+                        <td>{{myInfoCtrl.userData.lastName}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{myInfoCtrl.userData.email}}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>{{myInfoCtrl.userData.phone}}</td>
+                    </tr>
+                    <tr>
+                        <th>Favorite dish</th>
+                        <td>{{myInfoCtrl.userData.shortName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    
+</div>

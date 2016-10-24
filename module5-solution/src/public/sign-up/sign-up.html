@@ -1,0 +1,42 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">Sign up</h2>
+  
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-push-3" ng-hide="signUpCtrl.infoSaved">
+    
+            <form name="user_data_form" novalidate ng-submit="user_data_form.$valid && signUpCtrl.save()">
+                <div class="form-group">
+                    <label for="first_name">First name:</label>
+                    <input type="text" id="first_name" name="first_name" ng-model="signUpCtrl.userData.firstName" class="form-control" placeholder="Please type your first name" required />
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last name:</label>
+                    <input type="text" id="last_name" name="last_name" ng-model="signUpCtrl.userData.lastName" class="form-control" placeholder="Please type your last name" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" ng-model="signUpCtrl.userData.email" class="form-control" placeholder="Please type your email" required />
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" ng-model="signUpCtrl.userData.phone" class="form-control" placeholder="Please type your phone number" required />
+                </div>
+                <div class="form-group" ng-class="{'has-error' : signUpCtrl.favoriteChoiceHasErr, 'has-feedback' : signUpCtrl.favoriteChoiceHasErr}">
+                    <label name="short_name">Short name:</label>
+                    <input type="text" id="short_name" name="short_name" ng-model="signUpCtrl.userData.shortName" class="form-control" placeholder="Please type the menu number of your favorite dish" required />
+                    <span class="glyphicon glyphicon-remove form-control-feedback" ng-if="signUpCtrl.favoriteChoiceHasErr"></span>
+                    <span class="help-inline" ng-if="signUpCtrl.favoriteChoiceHasErr">{{signUpCtrl.favoriteChoiceErr}}</span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg center-block" ng-class="{disabled : !user_data_form.$valid}">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    
+        <div class="col-xs-12 text-center" ng-show="signUpCtrl.infoSaved">
+            <span>Your information has been saved.</span>
+        </div>
+        
+    </div>
+
+</div>
